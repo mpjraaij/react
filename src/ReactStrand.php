@@ -6,6 +6,7 @@ namespace Recoil\React;
 
 use React\Promise\Deferred;
 use React\Promise\ExtendedPromiseInterface;
+use React\Promise\PromiseInterface;
 use React\Promise\PromisorInterface;
 use Recoil\Awaitable;
 use Recoil\Kernel\Strand;
@@ -20,7 +21,7 @@ final class ReactStrand implements SystemStrand, Awaitable, PromisorInterface
      *
      * @return ExtendedPromiseInterface A promise that is settled with the strand result.
      */
-    public function promise()
+    public function promise(): PromiseInterface
     {
         if (!$this->promise) {
             $deferred = new Deferred();
